@@ -90,6 +90,14 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Set python version
+-- Setup instructions:
+-- > pyenv virtualenv 3.10.9 neovim_3.10.9
+-- > pyenv activate neovim_3.10.9
+-- > pip install neovim
+-- > pyenv which python
+vim.g.python3_host_prog = '/Users/ryan/.pyenv/versions/neovim_3.10.9/bin/python'
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
 
@@ -540,8 +548,10 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        gopls = {},
+        ruff = {},
+        ruff_lsp = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
